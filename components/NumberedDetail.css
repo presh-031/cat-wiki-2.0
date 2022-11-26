@@ -1,0 +1,36 @@
+.number-to-tiles {
+  display: inline;
+  text-align: center;
+}
+.shaded-tiles {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: 42px;
+  border-bottom: 10px #544439 solid;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+.unshaded-tiles {
+  display: inline-block;
+  vertical-align: middle;
+  width: 42px;
+  border-bottom: 10px #e0e0e0 solid;
+  border-radius: 5px;
+  margin-left: 10px;
+}
+@media (max-width: 768px) {
+  .number-to-tiles {
+    display: inline;
+    text-align: center;
+  }
+  .shaded-tiles {
+    min-width: 25px;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+  .unshaded-tiles {
+    width: 25px;
+    border-radius: 5px;
+    margin-left: 5px;
+  }
+}
