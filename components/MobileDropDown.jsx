@@ -29,19 +29,11 @@ const MobileDropDown = ({ breeds }) => {
     }
   };
 
-  //Function to handle any breed click
-  const handleClick = (breed) => {
-    currentBreedActions.setCurrentBreed(breed);
-
-    // Navigate to breed-info page.
-    router.push("/breed-info");
-  };
-
   const showSuggestions = search?.list?.map((breed) => {
     return (
       <div
         onClick={() => {
-          handleClick(breed);
+          router.push("/breed-info");
         }}
         key={breed.id}
         className="flex cursor-pointer items-center rounded-[1.2rem] p-[1.91rem] hover:bg-[#979797]  hover:bg-opacity-10"

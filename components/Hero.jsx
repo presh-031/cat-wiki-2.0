@@ -1,8 +1,3 @@
-import abob from "../assets/abob.jpg";
-import abys from "../assets/abys.jpg";
-import acur from "../assets/acur.jpg";
-import aege from "../assets/aege.jpg";
-
 import { ImSearch } from "react-icons/im";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
@@ -51,19 +46,19 @@ const Hero = () => {
         <div className="grid grid-cols-2 gap-[1.3rem]">
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src={abys} />
+              <BreedPhoto src="/abys.jpg" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">Abyssinian</p>
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src={aege} />
+              <BreedPhoto src="/aege.jpg" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">Aegean</p>{" "}
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src={abob} />
+              <BreedPhoto src="/abob.jpg" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">
               American Bobtail
@@ -71,7 +66,7 @@ const Hero = () => {
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src={acur} />
+              <BreedPhoto src="/acur.jpg" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">American Curl</p>{" "}
           </div>

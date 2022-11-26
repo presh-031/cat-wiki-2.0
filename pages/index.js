@@ -11,7 +11,7 @@ import { useDropDown } from "../stores/dropDown";
 import styles from "../styles/Home.module.css";
 
 export const getStaticProps = async () => {
-  const res = await fetch("/api");
+  const res = await fetch("http://localhost:3001/api");
   const data = await res.json(); //parse res as json
 
   return {
@@ -24,12 +24,11 @@ export const getStaticProps = async () => {
 export default function Home({ breeds }) {
   const dropDown = useDropDown();
 
-  console.log(breeds);
-
   return (
     <div className="px-[1.8rem] pt-[2.343rem]">
       <Header />
-      {dropDown.isShowing && <MobileDropDown breeds={breeds} />}
+      {/* {dropDown.isShowing && <MobileDropDown breeds={breeds} />} */}
+      <MobileDropDown breeds={breeds} />
       <Hero />
       <Reason />
       <Footer />

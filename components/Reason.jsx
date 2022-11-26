@@ -1,8 +1,6 @@
+import Image from "next/image";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
-import image1 from "../assets/image 1.png";
-import image2 from "../assets/image 2.png";
-import image3 from "../assets/image 3.png";
 const Reason = () => {
   return (
     <div className="mt-[6.372rem]  ">
@@ -27,14 +25,14 @@ const Reason = () => {
       <div className="grid grid-cols-2">
         <div className="flex flex-col gap-[1.798rem] ">
           <div>
-            <img src={image2} alt="" className="h-[10.90rem] w-[17.2rem]" />
+            <Image src="/image 2.png" alt="" width="172" height="109" />
           </div>
           <div className="w-fit self-end   ">
-            <img src={image1} alt="" className="h-[18.443rem] w-[12.295rem]" />
+            <Image src="/image 1.png" alt="" width="172" height="109" />
           </div>
         </div>
         <div className="flex justify-end">
-          <img src={image3} alt="" className="h-[24.96rem] w-[14.998rem]" />
+          <Image src="/image 3.png" alt="" width="172" height="109" />
         </div>
       </div>
     </div>
