@@ -8,9 +8,6 @@ import aege from "../assets/aege.jpg";
 import { ImSearch } from "react-icons/im";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
-import { useNavigate } from "react-router-dom";
-
-import { useDropDown } from "../stores/dropDown";
 import BreedPhoto from "./BreedPhoto";
 
 const Hero = () => {
@@ -47,7 +44,7 @@ const Hero = () => {
           {/* Clicking this p should move to the all breeds page */}
           <p
             onClick={() => {
-              navigate("/allbreeds");
+              router.push("/allbreeds");
             }}
             className="my-[2rem] flex w-fit items-center gap-[.9rem] text-[1.2rem] font-bold leading-[2.194rem] text-[#7F736A]"
           >
