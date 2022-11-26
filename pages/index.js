@@ -8,8 +8,6 @@ import Footer from "../components/Footer";
 
 import { useDropDown } from "../stores/dropDown";
 
-import styles from "../styles/Home.module.css";
-
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3001/api");
   const data = await res.json(); //parse res as json

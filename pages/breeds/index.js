@@ -2,7 +2,18 @@ import { useRouter } from "next/router";
 import BreedPhoto from "../components/BreedPhoto";
 import Header from "../components/Header";
 
-const AllBreeds = () => {
+export const getStaticProps = async () => {
+  const res = await fetch("http://localhost:3001/api");
+  const data = await res.json(); //parse res as json
+
+  return {
+    props: {
+      breeds: data,
+    },
+  };
+};
+
+const AllBreeds = ({ breeds }) => {
   const router = useRouter();
 
   return (
@@ -21,7 +32,7 @@ const AllBreeds = () => {
         </button>
       </div>
       <div className="grid grid-cols-1 gap-y-[5.2rem] font-montserrat">
-        {allBreedsData.map((breed) => {
+        {breeds.map((breed) => {
           return (
             <div
               className="mx-auto w-fit"
@@ -31,7 +42,7 @@ const AllBreeds = () => {
               key={breed.id}
             >
               <div className="h-[27.5rem] w-[27.5rem] overflow-hidden rounded-[2.4rem]">
-                <BreedPhoto src={breed?.image?.url} />
+                <BreedPhoto src={breed?.image?.url} name={breed?.name} />
               </div>
               <p className="mt-[2rem] text-[1.82rem] font-semibold">{breed?.name}</p>
             </div>

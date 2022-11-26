@@ -42,7 +42,6 @@ const MobileDropDown = ({ breeds }) => {
       </div>
     );
   });
-  // console.log(search.query, search.list);
 
   return (
     <div className="absolute top-0 right-0 left-0 h-[41.2rem] overflow-y-auto bg-white px-[1.80rem] pb-[3.2rem]  pt-[.7rem]">
