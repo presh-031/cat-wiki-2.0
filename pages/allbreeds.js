@@ -1,22 +1,10 @@
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/router";
 import BreedPhoto from "../components/BreedPhoto";
 import Header from "../components/Header";
-import { useAllBreeds } from "../stores/allBreeds";
-import { useCurrentBreed } from "../stores/breed";
 
 const AllBreeds = () => {
-  const [allBreeds, allBreedsActions] = useAllBreeds();
-  const allBreedsData = allBreeds.allBreeds;
+  const router = useRouter();
 
-  const [currentBreed, currentBreedActions] = useCurrentBreed();
-
-  const navigate = useNavigate();
-
-  const handleBreedClick = (breed) => {
-    currentBreedActions.setCurrentBreed(breed);
-
-    navigate("/breed-info");
-  };
   return (
     <div>
       <Header />
@@ -25,7 +13,7 @@ const AllBreeds = () => {
       <div className="flex justify-end p-[2rem]">
         <button
           onClick={() => {
-            navigate(-1);
+            router.push(-1);
           }}
           className="text-[1.2rem] font-semibold"
         >
@@ -38,7 +26,7 @@ const AllBreeds = () => {
             <div
               className="mx-auto w-fit"
               onClick={() => {
-                handleBreedClick(breed);
+                router.push("/breedinfo");
               }}
               key={breed.id}
             >

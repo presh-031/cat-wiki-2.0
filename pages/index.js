@@ -28,7 +28,7 @@ export default function Home({ breeds }) {
     <div className="px-[1.8rem] pt-[2.343rem]">
       <Header />
       {/* {dropDown.isShowing && <MobileDropDown breeds={breeds} />} */}
-      <MobileDropDown breeds={breeds} />
+      {/* <MobileDropDown breeds={breeds} /> */}
       <Hero />
       <Reason />
       <Footer />

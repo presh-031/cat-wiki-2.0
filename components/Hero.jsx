@@ -3,9 +3,12 @@ import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
 import { useDropDown } from "../stores/dropDown";
 import BreedPhoto from "./BreedPhoto";
+import { useRouter } from "next/router";
 
 const Hero = () => {
   const [dropDown, dropDownActions] = useDropDown();
+
+  const router = useRouter();
 
   return (
     <div>

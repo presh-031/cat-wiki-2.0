@@ -1,4 +1,5 @@
 <!-- Initially create with react, then learnt next.js and decided to recreate,s eeing how greatly next features benefit the app. -->
+<!-- Only make old react repo private -->
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
