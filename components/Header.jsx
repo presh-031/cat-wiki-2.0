@@ -1,9 +1,9 @@
-import catWikiLogo from "../assets/CatwikiLogo.svg";
+import Image from "next/image";
 
 const Header = () => {
   return (
     <header className=" mb-[2.3rem]">
-      <img src={catWikiLogo} alt="catwikilogo" />
+      <Image src="/Catwikilogo.svg" alt="logo" />
     </header>
   );
 };

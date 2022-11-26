@@ -6,13 +6,30 @@ import Hero from "../components/Hero";
 import Reason from "../components/Reason";
 import Footer from "../components/Footer";
 
+import { useDropDown } from "../stores/dropDown";
+
 import styles from "../styles/Home.module.css";
 
-export default function Home() {
+export const getStaticProps = async () => {
+  const res = await fetch("/api");
+  const data = await res.json(); //parse res as json
+
+  return {
+    props: {
+      breeds: data,
+    },
+  };
+};
+
+export default function Home({ breeds }) {
+  const dropDown = useDropDown();
+
+  console.log(breeds);
+
   return (
     <div className="px-[1.8rem] pt-[2.343rem]">
       <Header />
-      {dropDown.isShowing && <MobileDropDown breeds={data} />}
+      {dropDown.isShowing && <MobileDropDown breeds={breeds} />}
       <Hero />
       <Reason />
       <Footer />

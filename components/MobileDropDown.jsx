@@ -3,19 +3,11 @@ import { CgSearch } from "react-icons/cg";
 import { IconContext } from "react-icons";
 import { useState } from "react";
 
-// import fetchBreeds from "../api/fetchBreeds";
-// import { useQuery } from "react-query";
-
-import { useNavigate } from "react-router-dom";
-
 import { useDropDown } from "../stores/dropDown";
-import { useCurrentBreed } from "../stores/breed";
 
 const MobileDropDown = ({ breeds }) => {
   const [dropDown, actions] = useDropDown();
-  const [currentBreed, currentBreedActions] = useCurrentBreed();
 
-  const navigate = useNavigate();
   // Controlling search input
   const [search, setSearch] = useState({
     query: "",
@@ -42,7 +34,7 @@ const MobileDropDown = ({ breeds }) => {
     currentBreedActions.setCurrentBreed(breed);
 
     // Navigate to breed-info page.
-    navigate("/breed-info");
+    router.push("/breed-info");
   };
 
   const showSuggestions = search?.list?.map((breed) => {

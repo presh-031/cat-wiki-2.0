@@ -1,5 +1,3 @@
-import catWikiLogo from "../assets/CatwikiLogo.svg";
-
 import abob from "../assets/abob.jpg";
 import abys from "../assets/abys.jpg";
 import acur from "../assets/acur.jpg";
@@ -8,12 +6,11 @@ import aege from "../assets/aege.jpg";
 import { ImSearch } from "react-icons/im";
 import { HiOutlineArrowNarrowRight } from "react-icons/hi";
 
+import { useDropDown } from "../stores/dropDown";
 import BreedPhoto from "./BreedPhoto";
 
 const Hero = () => {
   const [dropDown, dropDownActions] = useDropDown();
-
-  const navigate = useNavigate();
 
   return (
     <div>
