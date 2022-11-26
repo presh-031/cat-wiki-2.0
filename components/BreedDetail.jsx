@@ -2,7 +2,7 @@ import BreedPhoto from "./BreedPhoto";
 
 import NumberedDetail from "./NumberedDetail";
 
-const BreedDetail = ({ breedInfo, name }) => {
+const BreedDetail = ({ breedInfo }) => {
   return (
     <div className="mt-[2rem]  p-[2rem] font-montserrat text-[#291507]">
       <p className="mb-[2.5rem] text-[3.6rem] font-semibold leading-[4.388rem]">{breedInfo.name}</p>
@@ -16,9 +16,8 @@ const BreedDetail = ({ breedInfo, name }) => {
       <p className="mb-[3.2rem] text-[1.6rem] font-bold leading-[1.95rem]">
         Life Span: <span className="font-medium"> {breedInfo.lifeSpan} years </span>
       </p>
-      {breedInfo.map((breed) => {
-        const detail = breedInfo.NumberedDetails;
-        return <NumberedDetail key={breed.id} title={detail[0]} value={detail[1]} />;
+      {breedInfo.numberedDetails.map((detail) => {
+        return <NumberedDetail key={detail.name} title={detail[0]} value={detail[1]} />;
       })}
 
       {/* Other Photos */}
@@ -26,13 +25,13 @@ const BreedDetail = ({ breedInfo, name }) => {
         Other Photos
       </p>
       <div className="grid grid-cols-1 gap-y-[5.2rem] ">
-        {data?.map((breed) => {
+        {/* {data?.map((breed) => {
           return (
             <div key={breed.id} className="mx-auto h-[27.5rem] w-[27.5rem] overflow-hidden rounded-[2.4rem] ">
-              <BreedPhoto src={breed[0]?.url} name={name} />
+              <BreedPhoto src={breed[0]?.url} name={breedInfo.name} />
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );

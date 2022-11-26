@@ -3,7 +3,7 @@ import BreedPhoto from "../../components/BreedPhoto";
 import Header from "../../components/Header";
 
 export const getStaticProps = async () => {
-  const res = await fetch("http://localhost:3001/api");
+  const res = await fetch("http://localhost:3000/api");
   const data = await res.json(); //parse res as json
 
   return {

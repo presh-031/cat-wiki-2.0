@@ -1,8 +1,8 @@
-.number-to-tiles {
+.number_to_tiles {
   display: inline;
   text-align: center;
 }
-.shaded-tiles {
+.shaded_tiles {
   display: inline-block;
   vertical-align: middle;
   min-width: 42px;
@@ -10,7 +10,7 @@
   border-radius: 5px;
   margin-left: 10px;
 }
-.unshaded-tiles {
+.unshaded_tiles {
   display: inline-block;
   vertical-align: middle;
   width: 42px;
@@ -19,16 +19,16 @@
   margin-left: 10px;
 }
 @media (max-width: 768px) {
-  .number-to-tiles {
+  .number_to_tiles {
     display: inline;
     text-align: center;
   }
-  .shaded-tiles {
+  .shaded_tiles {
     min-width: 25px;
     border-radius: 5px;
     margin-left: 5px;
   }
-  .unshaded-tiles {
+  .unshaded_tiles {
     width: 25px;
     border-radius: 5px;
     margin-left: 5px;

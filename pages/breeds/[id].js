@@ -1,4 +1,4 @@
-import { useDropDown } from "../stores/dropDown";
+import { useDropDown } from "../../stores/dropDown";
 
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
@@ -8,7 +8,7 @@ import BreedDetail from "../../components/BreedDetail";
 import { useRouter } from "next/router";
 
 export const getStaticPaths = async () => {
-  const res = await fetch("https://api.thecatapi.com/v1/breeds");
+  const res = await fetch("http://localhost:3000/api");
   const data = await res.json();
 
   const paths = data.map((breed) => {
@@ -24,7 +24,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
 
-  const res = await fetch("https://api.thecatapi.com/v1/breeds/" + id);
+  const res = await fetch("http://localhost:3000/api/photos/" + id);
   const data = await res.json();
 
   return {
@@ -76,7 +76,7 @@ const BreedInfo = ({ breed }) => {
         <div className="mx-auto h-[30.5rem] w-[30.5rem] overflow-hidden rounded-[2.4rem]">
           <BreedPhoto src={breed?.image?.url} name={breed?.name} />
         </div>
-        <BreedDetail breedInfo={breedInfo} name={breed?.name} />
+        <BreedDetail breedInfo={breedInfo} />
       </div>
       <Footer />
     </div>

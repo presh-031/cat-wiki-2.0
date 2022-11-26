@@ -39,7 +39,7 @@ const Hero = () => {
           {/* Clicking this p should move to the all breeds page */}
           <p
             onClick={() => {
-              router.push("/allbreeds");
+              router.push("/breeds");
             }}
             className="my-[2rem] flex w-fit items-center gap-[.9rem] text-[1.2rem] font-bold leading-[2.194rem] text-[#7F736A]"
           >
