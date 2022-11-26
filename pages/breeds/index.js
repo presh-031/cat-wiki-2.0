@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
-import BreedPhoto from "../components/BreedPhoto";
-import Header from "../components/Header";
+import BreedPhoto from "../../components/BreedPhoto";
+import Header from "../../components/Header";
 
 export const getStaticProps = async () => {
   const res = await fetch("http://localhost:3001/api");
@@ -37,7 +37,7 @@ const AllBreeds = ({ breeds }) => {
             <div
               className="mx-auto w-fit"
               onClick={() => {
-                router.push("/breedinfo");
+                router.push(`/breeds/${breed.id}`);
               }}
               key={breed.id}
             >

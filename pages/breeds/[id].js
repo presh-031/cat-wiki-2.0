@@ -1,13 +1,40 @@
 import { useDropDown } from "../stores/dropDown";
 
-import Header from "../components/Header";
-import BreedPhoto from "../components/BreedPhoto";
-import BreedDetail from "../components/BreedDetail";
-import Footer from "../components/Footer";
+import Header from "../../components/Header";
+import Footer from "../../components/Footer";
+import BreedPhoto from "../../components/BreedPhoto";
+import BreedDetail from "../../components/BreedDetail";
 
 import { useRouter } from "next/router";
 
-const BreedInfo = () => {
+export const getStaticPaths = async () => {
+  const res = await fetch("https://api.thecatapi.com/v1/breeds");
+  const data = await res.json();
+
+  const paths = data.map((breed) => {
+    return {
+      params: { id: breed.id.toString() },
+    };
+  });
+  return {
+    paths,
+    fallback: false,
+  };
+};
+export const getStaticProps = async (context) => {
+  const id = context.params.id;
+
+  const res = await fetch("https://api.thecatapi.com/v1/breeds/" + id);
+  const data = await res.json();
+
+  return {
+    props: {
+      breed: data,
+    },
+  };
+};
+
+const BreedInfo = ({ breed }) => {
   const [dropDown, dropDownActions] = useDropDown();
   const router = useRouter();
 
