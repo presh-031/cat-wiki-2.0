@@ -7,6 +7,10 @@ import BreedDetail from "../../components/BreedDetail";
 
 import { useRouter } from "next/router";
 
+// useSWR
+import useSWR from "swr";
+const fetcher = (...args) => fetch(...args).then((res) => res.json());
+
 export const getStaticPaths = async () => {
   const res = await fetch("http://localhost:3000/api");
   const data = await res.json();
@@ -24,7 +28,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
 
-  const res = await fetch("http://localhost:3000/api/photos/" + id);
+  const res = await fetch("http://localhost:3000/api/breed/" + id);
   const data = await res.json();
 
   return {
@@ -38,6 +42,7 @@ const BreedInfo = ({ breed }) => {
   const [dropDown, dropDownActions] = useDropDown();
   const router = useRouter();
 
+  console.log(breed);
   const breedInfo = {
     name: breed.name,
     description: breed.description,
@@ -58,6 +63,10 @@ const BreedInfo = ({ breed }) => {
     id: breed.id,
   };
 
+  // use SWR to fetch the breed photo
+  const { data, error } = useSWR(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}`, fetcher);
+
+  console.log(data);
   return (
     <div>
       <Header />
@@ -74,7 +83,8 @@ const BreedInfo = ({ breed }) => {
       </div>
       <div>
         <div className="mx-auto h-[30.5rem] w-[30.5rem] overflow-hidden rounded-[2.4rem]">
-          <BreedPhoto src={breed?.image?.url} name={breed?.name} />
+          {/* Get better images for error and loading states */}
+          <BreedPhoto src={error ? "/abys.jpg" : !data ? "/abob.jpg" : data[0]?.url} name={breed?.name} />
         </div>
         <BreedDetail breedInfo={breedInfo} />
       </div>

@@ -4,10 +4,10 @@ const Footer = () => {
   return (
     <footer className="mt-[2.232rem] rounded-t-[4.2rem] bg-black py-[3.482rem] pl-[2.9rem] text-white outline">
       <Image
-        src="/catWikilogo"
+        src="/Catwikilogo.svg"
         alt="logo"
-        width={20}
-        height={19}
+        width={100}
+        height={20}
         className="mb-[1.4rem] h-[1.9rem] contrast-[150%] invert"
       />
       <div className=" flex items-center gap-x-[0.7rem]">
