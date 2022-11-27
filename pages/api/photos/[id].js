@@ -1,4 +1,4 @@
-const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
+// const fetch = (...args) => import("node-fetch").then(({ default: fetch }) => fetch(...args));
 
 export default async function handler(req, res) {
   const { id } = req.query;

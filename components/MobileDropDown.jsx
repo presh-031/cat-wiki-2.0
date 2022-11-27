@@ -20,7 +20,7 @@ const MobileDropDown = ({ breeds }) => {
   const handleInput = (e) => {
     const results = breeds.filter((breed) => {
       if (e.target.value === "") return breeds;
-      return breed.name.toLowerCase().includes(e.target.value.toLowerCase());
+      return breed?.name?.toLowerCase().includes(e.target.value.toLowerCase());
     });
     setSearch({
       query: e.target.value,

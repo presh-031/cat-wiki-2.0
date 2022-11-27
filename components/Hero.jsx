@@ -49,19 +49,19 @@ const Hero = () => {
         <div className="grid grid-cols-2 gap-[1.3rem]">
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/abys.jpg" name="abys" height={134} width={20} />
+              <BreedPhoto src="/abys.jpg" name="abys" page="hero" />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">Abyssinian</p>
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/aege.jpg" name="aege" height={134} width={20} />
+              <BreedPhoto src="/aege.jpg" name="aege" page="hero" />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">Aegean</p>{" "}
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/abob.jpg" name="abob" height={134} width={20} />
+              <BreedPhoto src="/abob.jpg" name="abob" page="hero" />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">
               American Bobtail
@@ -69,7 +69,7 @@ const Hero = () => {
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/acur.jpg" name="acur" height={134} width={20} />
+              <BreedPhoto src="/acur.jpg" name="acur" page="hero" />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">American Curl</p>{" "}
           </div>

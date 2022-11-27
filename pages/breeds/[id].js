@@ -62,13 +62,13 @@ const BreedInfo = ({ breed }) => {
     id: breed.id,
   };
 
-  // use SWR to fetch the breed photo
+  // // use SWR to fetch the breed photo
   const { data, error } = useSWR(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}`, fetcher);
 
   return (
     <div>
       <Header />
-      <div className="flex justify-end p-[2rem] ">
+      <div className="flex justify-end p-[2rem]">
         <button
           className="font-montserrat text-[1.2rem] font-bold"
           onClick={() => {
@@ -82,7 +82,7 @@ const BreedInfo = ({ breed }) => {
       <div>
         <div className="mx-auto h-[30.5rem] w-[30.5rem] overflow-hidden rounded-[2.4rem]">
           {/* Get better images for error and loading states */}
-          <BreedPhoto src={error ? "/abys.jpg" : !data ? "/abob.jpg" : data[0]?.url} name={breed?.name} />
+          <BreedPhoto src={error ? "/error.png" : !data ? "/loading.png" : data[0]?.url} name={breed?.name} />
         </div>
         <BreedDetail breedInfo={breedInfo} />
       </div>
