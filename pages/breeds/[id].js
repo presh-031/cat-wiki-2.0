@@ -42,7 +42,6 @@ const BreedInfo = ({ breed }) => {
   const [dropDown, dropDownActions] = useDropDown();
   const router = useRouter();
 
-  console.log(breed);
   const breedInfo = {
     name: breed.name,
     description: breed.description,
@@ -66,7 +65,6 @@ const BreedInfo = ({ breed }) => {
   // use SWR to fetch the breed photo
   const { data, error } = useSWR(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}`, fetcher);
 
-  console.log(data);
   return (
     <div>
       <Header />

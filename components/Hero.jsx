@@ -12,13 +12,13 @@ const Hero = () => {
 
   return (
     <div>
-      <div className="rounded-t-[4.2rem] border border-red-800 bg-black bg-hero-image-sm bg-cover bg-center  bg-no-repeat px-[2.9rem] py-[2.1rem] ">
+      <div className="rounded-t-[4.2rem]  bg-black bg-hero-image-sm bg-cover bg-center  bg-no-repeat px-[2.9rem] py-[2.1rem] ">
         <div className="text-[#fff]">
           <p className="mb-[.73rem] font-mystery-quest text-[1.4rem] font-normal leading-[1.911rem]">CatWiki</p>
           <p className="mb-[1.82rem] w-[13.92rem] font-montserrat text-[1rem] font-medium leading-[1.219rem]">
             Get to know more about your cat breed
           </p>
-          <div className=" flex w-[9.2rem] items-center rounded-[5.9rem] border border-red-800 bg-white px-[1.3rem] py-[0.8rem]">
+          <div className=" flex w-[9.2rem] items-center rounded-[5.9rem]  bg-white px-[1.3rem] py-[0.8rem]">
             <input
               type="text"
               placeholder="Search"
@@ -41,7 +41,7 @@ const Hero = () => {
             onClick={() => {
               router.push("/breeds");
             }}
-            className="my-[2rem] flex w-fit items-center gap-[.9rem] text-[1.2rem] font-bold leading-[2.194rem] text-[#7F736A]"
+            className="my-[2rem] cursor-pointer flex w-fit items-center gap-[.9rem] text-[1.2rem] font-bold leading-[2.194rem] text-[#7F736A]"
           >
             <span>SEE MORE</span> <HiOutlineArrowNarrowRight />{" "}
           </p>
@@ -49,19 +49,19 @@ const Hero = () => {
         <div className="grid grid-cols-2 gap-[1.3rem]">
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/abys.jpg" height={134} width={20} />
+              <BreedPhoto src="/abys.jpg" name="abys" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">Abyssinian</p>
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/aege.jpg" height={134} width={20} />
+              <BreedPhoto src="/aege.jpg" name="aege" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">Aegean</p>{" "}
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/abob.jpg" height={134} width={20} />
+              <BreedPhoto src="/abob.jpg" name="abob" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">
               American Bobtail
@@ -69,7 +69,7 @@ const Hero = () => {
           </div>
           <div className="">
             <div className="h-[13.477rem] w-[100%] overflow-hidden">
-              <BreedPhoto src="/acur.jpg" height={134} width={20} />
+              <BreedPhoto src="/acur.jpg" name="acur" height={134} width={20} />
             </div>
             <p className="mt-[1.2rem] font-montserrat text-[1.2rem] font-semibold leading-[1.463rem]">American Curl</p>{" "}
           </div>

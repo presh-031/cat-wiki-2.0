@@ -15,6 +15,7 @@ const MobileDropDown = ({ breeds }) => {
     query: "",
     list: breeds,
   });
+  console.log(breeds);
 
   const handleInput = (e) => {
     const results = breeds.filter((breed) => {
@@ -62,11 +63,11 @@ const MobileDropDown = ({ breeds }) => {
         <CgSearch className="" />
       </div>
       <div className="h-[100%] ">
-        {search?.list?.length ? (
+        {search?.list?.length > 1 ? (
           showSuggestions
         ) : (
           <p className="mt-[10rem] text-center font-montserrat text-[1.8rem] font-semibold  leading-[2.194rem] ">
-            No result found
+            No breed found
           </p>
         )}
       </div>
