@@ -22,11 +22,23 @@ export const getStaticProps = async () => {
 export default function Home({ breeds }) {
   const [dropDown, dropDownActions] = useDropDown();
 
+  const handleModalBgClick = (e) => {
+    if (e.target === e.currentTarget) {
+      dropDownActions.setDropDown();
+    }
+  };
+
   return (
     <div className="px-[1.8rem] pt-[2.343rem]">
       <Header />
-      {dropDown.isShowing && <MobileDropDown breeds={breeds} />}
-      {/* <MobileDropDown breeds={breeds} /> */}
+      {dropDown.isShowing && (
+        <div
+          onClick={handleModalBgClick}
+          className=" fixed  right-0  top-0 flex h-[100vh] w-[100vw] bg-opacity-20  bg-black "
+        >
+          <MobileDropDown breeds={breeds} />
+        </div>
+      )}
       <Hero />
       <Reason />
       <Footer />

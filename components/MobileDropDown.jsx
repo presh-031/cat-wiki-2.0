@@ -4,9 +4,11 @@ import { IconContext } from "react-icons";
 import { useState } from "react";
 
 import { useDropDown } from "../stores/dropDown";
+import { useRouter } from "next/router";
 
 const MobileDropDown = ({ breeds }) => {
-  const [dropDown, actions] = useDropDown();
+  const router = useRouter();
+  const [dropDown, dropDownActions] = useDropDown();
 
   // Controlling search input
   const [search, setSearch] = useState({
@@ -25,7 +27,7 @@ const MobileDropDown = ({ breeds }) => {
     });
 
     if (e.target.value === "") {
-      actions.setDropDown();
+      dropDownActions.setDropDown();
     }
   };
 
@@ -33,7 +35,7 @@ const MobileDropDown = ({ breeds }) => {
     return (
       <div
         onClick={() => {
-          router.push("/breed-info");
+          router.push(`/breeds/${breed.id}`);
         }}
         key={breed.id}
         className="flex cursor-pointer items-center rounded-[1.2rem] p-[1.91rem] hover:bg-[#979797]  hover:bg-opacity-10"
@@ -44,10 +46,10 @@ const MobileDropDown = ({ breeds }) => {
   });
 
   return (
-    <div className="absolute top-0 right-0 left-0 h-[41.2rem] overflow-y-auto bg-white px-[1.80rem] pb-[3.2rem]  pt-[.7rem]">
+    <div className=" scrollbar-hide w-[100%]  left-0 h-[41.2rem] overflow-y-auto bg-white px-[1.80rem] pb-[3.2rem]  pt-[.7rem]">
       <div className="flex justify-end">
         <div
-          onClick={actions.setDropDown}
+          onClick={dropDownActions.setDropDown}
           className=" flex h-[4rem] w-[4rem] cursor-pointer items-center justify-center rounded-[.8rem] bg-[#979797]  bg-opacity-10  "
         >
           <IconContext.Provider value={{ style: { width: "2.318rem", height: "2.24rem" } }}>
