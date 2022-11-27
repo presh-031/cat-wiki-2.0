@@ -24,7 +24,7 @@ const AllBreeds = ({ breeds }) => {
       <div className="flex justify-end p-[2rem]">
         <button
           onClick={() => {
-            router.push(-1);
+            router.back();
           }}
           className="text-[1.2rem] font-semibold"
         >

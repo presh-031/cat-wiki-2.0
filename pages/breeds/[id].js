@@ -75,7 +75,7 @@ const BreedInfo = ({ breed }) => {
           className="font-montserrat text-[1.2rem] font-bold"
           onClick={() => {
             dropDownActions.setDropDown(false);
-            router.push(-1);
+            router.back();
           }}
         >
           Go back
