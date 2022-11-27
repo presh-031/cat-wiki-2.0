@@ -6,10 +6,7 @@ import BreedPhoto from "../../components/BreedPhoto";
 import BreedDetail from "../../components/BreedDetail";
 
 import { useRouter } from "next/router";
-
-// useSWR
-import useSWR from "swr";
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
+import { useEffect, useState } from "react";
 
 export const getStaticPaths = async () => {
   const res = await fetch("http://localhost:3000/api");
@@ -62,9 +59,19 @@ const BreedInfo = ({ breed }) => {
     id: breed.id,
   };
 
-  // // use SWR to fetch the breed photo
-  const { data, error } = useSWR(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}`, fetcher);
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
+  useEffect(() => {
+    setLoading(true);
+    fetch(`https://api.thecatapi.com/v1/images/search?breed_ids=${breed.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <Header />
@@ -82,7 +89,7 @@ const BreedInfo = ({ breed }) => {
       <div>
         <div className="mx-auto h-[30.5rem] w-[30.5rem] overflow-hidden rounded-[2.4rem]">
           {/* Get better images for error and loading states */}
-          <BreedPhoto src={error ? "/error.png" : !data ? "/loading.png" : data[0]?.url} name={breed?.name} />
+          <BreedPhoto src={loading ? "/loading.png" : data[0]?.url} name={breed?.name} />
         </div>
         <BreedDetail breedInfo={breedInfo} />
       </div>

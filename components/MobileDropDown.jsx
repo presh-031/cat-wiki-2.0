@@ -15,7 +15,6 @@ const MobileDropDown = ({ breeds }) => {
     query: "",
     list: breeds,
   });
-  console.log(breeds);
 
   const handleInput = (e) => {
     const results = breeds.filter((breed) => {

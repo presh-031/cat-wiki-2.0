@@ -43,7 +43,7 @@ const BreedDetail = ({ breedInfo }) => {
           return (
             <div key={breed.id} className="mx-auto h-[27.5rem] w-[27.5rem] overflow-hidden rounded-[2.4rem] ">
               {/* <BreedPhoto src={error ? "/error.png" : !data ? "/loading.png" : breed?.url} name={breedInfo.name} /> */}
-              <BreedPhoto src={!data ? "/error.png" : loading ? "/loading.png" : breed?.url} name={breedInfo.name} />
+              <BreedPhoto src={loading ? "/loading.png" : breed?.url} name={breedInfo.name} />
             </div>
           );
         })}
