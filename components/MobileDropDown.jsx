@@ -5,6 +5,7 @@ import { useState } from "react";
 
 import { useDropDown } from "../stores/dropDown";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const MobileDropDown = ({ breeds }) => {
   const router = useRouter();
@@ -33,15 +34,16 @@ const MobileDropDown = ({ breeds }) => {
 
   const showSuggestions = search?.list?.map((breed) => {
     return (
-      <div
-        onClick={() => {
-          router.push(`/breeds/${breed.id}`);
-        }}
+      <Link
+        // onClick={() => {
+        //   router.push(`/breeds/${breed.id}`);
+        // }}
+        href={`/breeds/${breed.id}`}
         key={breed.id}
         className="flex cursor-pointer items-center rounded-[1.2rem] p-[1.91rem] hover:bg-[#979797]  hover:bg-opacity-10"
       >
         <p className="font-montserrat text-[1.80rem]  font-medium leading-[2.194rem]">{breed.name}</p>
-      </div>
+      </Link>
     );
   });
 
