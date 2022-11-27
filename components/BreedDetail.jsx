@@ -1,13 +1,22 @@
+import { useEffect, useState } from "react";
 import BreedPhoto from "./BreedPhoto";
 import NumberedDetail from "./NumberedDetail";
 
-// useSWR
-import useSWR from "swr";
-const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
 const BreedDetail = ({ breedInfo }) => {
-  const { data, error } = useSWR(`http://localhost:3000/api/photos/${breedInfo.id}`, fetcher);
-  console.log(data);
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch(`http://localhost:3000/api/photos/${breedInfo.id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+        setLoading(false);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="mt-[2rem]  p-[2rem] font-montserrat text-[#291507]">
       <p className="mb-[2.5rem] text-[3.6rem] font-semibold leading-[4.388rem]">{breedInfo.name}</p>
@@ -33,7 +42,8 @@ const BreedDetail = ({ breedInfo }) => {
         {data?.map((breed) => {
           return (
             <div key={breed.id} className="mx-auto h-[27.5rem] w-[27.5rem] overflow-hidden rounded-[2.4rem] ">
-              <BreedPhoto src={error ? "/error.png" : !data ? "/loading.png" : breed?.url} name={breedInfo.name} />
+              {/* <BreedPhoto src={error ? "/error.png" : !data ? "/loading.png" : breed?.url} name={breedInfo.name} /> */}
+              <BreedPhoto src={!data ? "/error.png" : loading ? "/loading.png" : breed?.url} name={breedInfo.name} />
             </div>
           );
         })}

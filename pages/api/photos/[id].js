@@ -27,10 +27,10 @@ export default async function handler(req, res) {
     });
 
     res.status(200).send(unique);
-  } catch (err) {
+  } catch (error) {
     console.log(err);
     return res.status(500).json({
-      mssg: "error getting images",
+      mssg: error.message,
     });
   }
 }
