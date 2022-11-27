@@ -20,12 +20,12 @@ export const getStaticProps = async () => {
 };
 
 export default function Home({ breeds }) {
-  const dropDown = useDropDown();
+  const [dropDown, dropDownActions] = useDropDown();
 
   return (
     <div className="px-[1.8rem] pt-[2.343rem]">
       <Header />
-      {/* {dropDown.isShowing && <MobileDropDown breeds={breeds} />} */}
+      {dropDown.isShowing && <MobileDropDown breeds={breeds} />}
       {/* <MobileDropDown breeds={breeds} /> */}
       <Hero />
       <Reason />
