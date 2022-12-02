@@ -88,7 +88,6 @@ const BreedInfo = ({ breed }) => {
       </div>
       <div>
         <div className="mx-auto h-[30.5rem] w-[30.5rem] overflow-hidden rounded-[2.4rem]">
-          {/* Get better images for error and loading states */}
           <BreedPhoto src={loading ? "/loading.png" : data[0]?.url} name={breed?.name} />
         </div>
         <BreedDetail breedInfo={breedInfo} />

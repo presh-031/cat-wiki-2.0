@@ -28,7 +28,6 @@ export default async function handler(req, res) {
 
     res.status(200).send(unique);
   } catch (error) {
-    console.log(err);
     return res.status(500).json({
       mssg: error.message,
     });
