@@ -5,8 +5,9 @@ export default async function handler(req, res) {
     const data = await response.json();
 
     res.status(200).send(data);
-  } catch (err) {
-    console.log(err);
-    return res.status(500).json([{}]);
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
   }
 }
