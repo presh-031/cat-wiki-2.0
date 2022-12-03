@@ -9,7 +9,8 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export const getStaticPaths = async () => {
-  const res = await fetch("http://localhost:3000/api");
+  // const res = await fetch("http://localhost:3000/api");
+  const res = await fetch("https://api.thecatapi.com/v1/breeds");
   const data = await res.json();
 
   const paths = data.map((breed) => {
@@ -25,7 +26,8 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
 
-  const res = await fetch(`http://localhost:3000/api/breed/${id}`);
+  // const res = await fetch(`http://localhost:3000/api/breed/${id}`);
+  const res = await fetch(`https://api.thecatapi.com/v1/breeds/${id}`);
   const data = await res.json();
 
   return {
@@ -69,7 +71,8 @@ const BreedInfo = ({ breed }) => {
       .then((data) => {
         setData(data);
         setLoading(false);
-      });
+      })
+      .catch((error) => console.log(error));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
