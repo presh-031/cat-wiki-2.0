@@ -16,7 +16,6 @@ const BreedDetail = ({ breedInfo }) => {
       });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
-
   return (
     <div className="mt-[2rem]  p-[2rem] font-montserrat text-[#291507]">
       <p className="mb-[2.5rem] text-[3.6rem] font-semibold leading-[4.388rem]">{breedInfo.name}</p>

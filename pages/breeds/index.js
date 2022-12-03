@@ -32,7 +32,7 @@ const AllBreeds = ({ breeds }) => {
         </button>
       </div>
       <div className="grid grid-cols-1 gap-y-[5.2rem] font-montserrat">
-        {breeds.map((breed) => {
+        {breeds?.map((breed) => {
           return (
             <div
               className="mx-auto w-fit"
