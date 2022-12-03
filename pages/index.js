@@ -19,7 +19,7 @@ export const getStaticProps = async () => {
   };
 };
 
-export default function Home({ breeds }) {
+export default function Home({ breeds = [] }) {
   const [dropDown, dropDownActions] = useDropDown();
 
   const handleModalBgClick = (e) => {
