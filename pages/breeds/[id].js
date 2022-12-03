@@ -14,7 +14,7 @@ export const getStaticPaths = async () => {
 
   const paths = data.map((breed) => {
     return {
-      params: { id: breed.id.toString() },
+      params: { id: breed.id },
     };
   });
   return {
@@ -25,7 +25,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async (context) => {
   const id = context.params.id;
 
-  const res = await fetch("http://localhost:3000/api/breed/" + id);
+  const res = await fetch(`http://localhost:3000/api/breed/${id}`);
   const data = await res.json();
 
   return {
@@ -38,6 +38,9 @@ export const getStaticProps = async (context) => {
 const BreedInfo = ({ breed }) => {
   const [dropDown, dropDownActions] = useDropDown();
   const router = useRouter();
+
+  console.log(breed.id);
+  console.log(typeof breed.id);
 
   const breedInfo = {
     name: breed.name,

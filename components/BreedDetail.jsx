@@ -39,7 +39,7 @@ const BreedDetail = ({ breedInfo }) => {
       </p>
       <div className="grid grid-cols-1 gap-y-[5.2rem] ">
         {data ? (
-          data.map((breed) => {
+          data?.map((breed) => {
             return (
               <div key={breed.id} className="mx-auto h-[27.5rem] w-[27.5rem] overflow-hidden rounded-[2.4rem] ">
                 <BreedPhoto src={loading ? "/loading.png" : breed?.url} name={breedInfo.name} />
