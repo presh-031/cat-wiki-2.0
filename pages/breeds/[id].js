@@ -39,9 +39,6 @@ const BreedInfo = ({ breed }) => {
   const [dropDown, dropDownActions] = useDropDown();
   const router = useRouter();
 
-  console.log(breed.id);
-  console.log(typeof breed.id);
-
   const breedInfo = {
     name: breed.name,
     description: breed.description,

@@ -1,5 +1,4 @@
 export default async function handler(req, res) {
-  // res.status(200).json({ name: 'John Doe' })
   const { id } = req.query;
 
   try {
